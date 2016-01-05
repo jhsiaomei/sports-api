@@ -1,0 +1,12 @@
+<div ng-app="app">
+  <div ng-controller="teamsCtrl" ng-init="setup()">
+    <ul>
+      <li ng-repeat="team in teams">
+        <p>Name: {{ team.name }}</p>
+        <p>School: {{ team.school }}</p>
+        <p>Logo: {{ team.logo }}</p>
+        <p>Color: {{ team.color }}</p>
+        <p>Motto: {{ team.motto }}</p>
+    </ul>
+  </div>
+</div>
