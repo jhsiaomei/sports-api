@@ -35,6 +35,11 @@
       });
     };
 
+    $scope.sortBy = function(inputSortAttribute) {
+      $scope.sortAttribute = inputSortAttribute;
+      $scope.sortDescending = !$scope.sortDescending;
+    };
+
     window.$scope = $scope;
   });
 })();
