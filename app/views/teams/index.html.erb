@@ -12,8 +12,12 @@
       <p>Motto: <input ng-model="newMotto"></p>
       <p><button ng-click="addTeam(newName, newSchool, newLogo, newColor, newMotto)">Add Team</button></p>
     </div>
+    <div>
+      <label>Filter:</label>
+      <input ng-model="nameFilter">
+    </div>
     <ul>
-      <li ng-repeat="team in teams">
+      <li ng-repeat="team in teams | filter: {name: nameFilter} | orderBy:'name'">
         <p ng-click="toggleVisible(team)">Name: {{ team.name }}</p>
         <p ng-if="team.bioVisible">School: {{ team.school }}</p>
         <p ng-if="team.bioVisible">Logo: {{ team.logo }}</p>
