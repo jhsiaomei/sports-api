@@ -2,11 +2,20 @@
   <div ng-controller="teamsCtrl" ng-init="setup()">
     <ul>
       <li ng-repeat="team in teams">
-        <p>Name: {{ team.name }}</p>
-        <p>School: {{ team.school }}</p>
-        <p>Logo: {{ team.logo }}</p>
-        <p>Color: {{ team.color }}</p>
-        <p>Motto: {{ team.motto }}</p>
+        <p ng-click="toggleVisible(team)">Name: {{ team.name }}</p>
+        <p ng-if="team.bioVisible">School: {{ team.school }}</p>
+        <p ng-if="team.bioVisible">Logo: {{ team.logo }}</p>
+        <p ng-if="team.bioVisible">Color: {{ team.color }}</p>
+        <p ng-if="team.bioVisible">Motto: {{ team.motto }}</p>
     </ul>
+    <div>
+      <h4>Add a new Team:</h4>
+      <p>Name: <input ng-model="newName"></p>
+      <p>School: <input ng-model="newSchool"></p>
+      <p>Logo: <input ng-model="newLogo"></p>
+      <p>Color: <input ng-model="newColor"></p>
+      <p>Motto: <input ng-model="newMotto"></p>
+      <p><button ng-click="addTeam(newName, newSchool, newLogo, newColor, newMotto)">Add Team</button></p>
+    </div>
   </div>
 </div>
