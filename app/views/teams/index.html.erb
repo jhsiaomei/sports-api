@@ -1,12 +1,7 @@
 <div ng-app="app">
   <div ng-controller="teamsCtrl" ng-init="setup()">
     <ul>
-      <li ng-repeat="team in teams">
-        <p ng-click="toggleVisible(team)">Name: {{ team.name }}</p>
-        <p ng-if="team.bioVisible">School: {{ team.school }}</p>
-        <p ng-if="team.bioVisible">Logo: {{ team.logo }}</p>
-        <p ng-if="team.bioVisible">Color: {{ team.color }}</p>
-        <p ng-if="team.bioVisible">Motto: {{ team.motto }}</p>
+      <li ng-repeat="error in errors track by $index">{{ error }}</li>
     </ul>
     <div>
       <h4>Add a new Team:</h4>
@@ -17,5 +12,13 @@
       <p>Motto: <input ng-model="newMotto"></p>
       <p><button ng-click="addTeam(newName, newSchool, newLogo, newColor, newMotto)">Add Team</button></p>
     </div>
+    <ul>
+      <li ng-repeat="team in teams">
+        <p ng-click="toggleVisible(team)">Name: {{ team.name }}</p>
+        <p ng-if="team.bioVisible">School: {{ team.school }}</p>
+        <p ng-if="team.bioVisible">Logo: {{ team.logo }}</p>
+        <p ng-if="team.bioVisible">Color: {{ team.color }}</p>
+        <p ng-if="team.bioVisible">Motto: {{ team.motto }}</p>
+    </ul>
   </div>
 </div>

@@ -8,14 +8,18 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.create(
+    @organization = Organization.new(
       school: params[:school],
       name: params[:name],
       color: params[:color],
       logo: params[:logo],
       motto: params[:motto]
       )
-    render :show
+    if @organization.save
+      render json: { message: "Success!" }
+    else
+      render json: { errors: @organization.errors.full_messages }, status: 422
+    end
   end
 
   def update

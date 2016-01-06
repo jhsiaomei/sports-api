@@ -22,13 +22,17 @@
       };
       $http.post('/api/v1/organizations.json', team).then(function(response) {
         console.log(response);
+        $scope.errors = '';
+        $scope.teams.push(team);
+        $scope.newName = '';
+        $scope.newSchool = '';
+        $scope.newLogo = '';
+        $scope.newColor = '';
+        $scope.newMotto = '';
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
       });
-      $scope.teams.push(team);
-      $scope.newName = '';
-      $scope.newSchool = '';
-      $scope.newLogo = '';
-      $scope.newColor = '';
-      $scope.newMotto = '';
     };
 
     window.$scope = $scope;
